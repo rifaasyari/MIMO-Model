@@ -1,0 +1,23 @@
+function [ H_LOS ] = LOS( transmit_array_locate,transmit_antenna_index,...
+    transmit_antenna_number,transmit_delta,transmit_phi,...
+    receiver_antenna_index,receiver_antenna_number,receiver_delta,...
+    receiver_array_beta,carrier_lambda,rician_factor )
+% input transmit_array_locate£º
+%       transmit_antenna_index£º
+%       transmit_antenna_number£º
+%       transmit_delta£º
+%       transmit_phi£º
+%       receiver_antenna_index£º
+%       receiver_antenna_number£º
+%       receiver_delta£º
+%       receiver_array_beta£º
+%       carrier_lambda£º
+%       rician_factor£º
+% output H_LOS£º
+    H_LOS = sqrt(rician_factor / (rician_factor + 1)) *...
+    exp(1j * LOS_phi(transmit_array_locate,transmit_antenna_index,...
+    transmit_antenna_number,transmit_delta,transmit_phi,...
+    receiver_antenna_index,receiver_antenna_number,receiver_delta,...
+    receiver_array_beta,carrier_lambda));
+end
+
